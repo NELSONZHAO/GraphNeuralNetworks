@@ -64,5 +64,3 @@ for epoch in range(100):
     print("Epoch {:05d} | Loss {:.4f} | Train: {:.4f} | Val: {:.4f}".format(
         epoch, loss.item(), train_acc, val_acc))
 
-
-# test

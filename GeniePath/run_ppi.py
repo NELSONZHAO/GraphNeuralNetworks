@@ -9,6 +9,8 @@ import torch
 from dgl.data import PPIDataset
 from sklearn.metrics import f1_score
 
+from .geniepath import GeniePath
+
 data = PPIDataset(mode="train")
 val_data = PPIDataset(mode="valid")
 test_data = PPIDataset(mode="test")
@@ -30,9 +32,9 @@ optimizer = torch.optim.Adam(net.parameters(), lr=1e-3, amsgrad=True)
 # main loop
 dur = []
 epoch_losses = []
-# best_f1 = 0
-# best_epoch = 0
-for epoch in range(5000):
+epochs = 1000
+
+for epoch in range(epoch_losses):
     logits = net(g, torch.FloatTensor(data.features))
     torch.nn.BCEWithLogitsLoss()
     loss = loss_op(logits, torch.FloatTensor(data.labels))
